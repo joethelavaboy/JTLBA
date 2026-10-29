@@ -1,1 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JTLB</title>
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --bg-top: #8fd0ff;
+    --bg-mid: #2f8fe0;
+    --bg-bottom: #0a3d8f;
+    --text: #ffffff;
+    --text-shadow: rgba(0, 40, 100, 0.65);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg-top: #5aa9e6;
+      --bg-mid: #1f6fc0;
+      --bg-bottom: #062a66;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg-top: #5aa9e6;
+    --bg-mid: #1f6fc0;
+    --bg-bottom: #062a66;
+    color-scheme: dark;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); height: 100%; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    height: 100%;
+    min-height: 100vh;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--bg-bottom);
+    background-image: linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bottom) 100%);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 48px;
+  }
+  nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 20px;
+    background-image: linear-gradient(to bottom, #3a8fe0 0%, #1a5fb4 50%, #0f4a98 51%, #1566c4 100%);
+    border-bottom: 1px solid #072f6b;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 3px 10px rgba(0, 20, 60, 0.5);
+  }
+  .JTLB {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+  }
+  .JTLB-mark {
+    width: 54px;
+    height: 34px;
+    border-radius: 4px;
+    border: 1px solid #0b3f86;
+    background-image: linear-gradient(to bottom, #ffffff 0%, #bfe0ff 45%, #5aa9e6 50%, #2b86e0 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 4px rgba(0,20,60,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0b3f86;
+    font-size: 11px;
+    text-shadow: none;
+  }
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .menu a {
+    display: block;
+    padding: 8px 14px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    border-radius: 6px;
+  }
+  .menu a:hover {
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.35), rgba(255,255,255,0.08));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+  }
+  @media (max-width: 600px) {
+    nav { flex-direction: column; padding: 8px 10px; }
+    .menu { justify-content: center; }
+    .menu a { padding: 6px 9px; font-size: 13px; }
+  }
+  header { text-align: center; max-width: 720px; margin-bottom: auto; padding: 56px 20px 0; }
+  h1 {
+    margin: 0 0 12px;
+    font-size: clamp(34px, 7vw, 56px);
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 0 var(--text-shadow), 0 4px 10px rgba(0, 30, 80, 0.45);
+  }
+  .sub {
+    margin: 0;
+    font-size: clamp(14px, 3.2vw, 18px);
+    opacity: 0.92;
+    text-shadow: 0 1px 1px var(--text-shadow);
+  }
+  .buttons {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0 20px;
+  }
+  .btn {
+    position: relative;
+    flex: 0 1 200px;
+    min-width: 0;
+    padding: 30px 12px;
+    font: bold 16px "Lucida Grande", Verdana, Arial, sans-serif;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+    overflow: hidden;
+    /* subtle diagonal texture over a vertical gradient */
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5d/Available_on_the_App_Store_%28black%29.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original");
+    background-size: cover;      /* fills the whole button */
+    background-position: center;
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.07) 0 2px, rgba(0,0,0,0.05) 2px 4px),
+      linear-gradient(to bottom, #6bb8ff 0%, #2b86e0 50%, #1565c0 51%, #2a8cf0 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.7),
+      inset 0 -2px 4px rgba(0, 40, 110, 0.4),
+      0 3px 0 #0b3f86,
+      0 6px 12px rgba(0, 20, 60, 0.5);
+    transition: transform 0.08s, box-shadow 0.08s, filter 0.15s;
+  }
+  /* glossy top-half highlight */
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(255,255,255,0.12));
+    pointer-events: none;
+  }
+  .btn span { position: relative; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn:active {
+    transform: translateY(3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      inset 0 -2px 4px rgba(0, 40, 110, 0.4),
+      0 0 0 #0b3f86,
+      0 2px 5px rgba(0, 20, 60, 0.5);
+  }
+  .btn.green {
 
+    background-color: #4caf20;
+    background-image: url("https://static.wikia.nocookie.net/logopedia/images/2/23/Droidmarkgreenshort.svg/revision/latest?cb=20251023180301");
+    background-size: cover;      /* fills the whole button */
+    background-position: center;
+}
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.07) 0 2px, rgba(0,0,0,0.05) 2px 4px),
+      linear-gradient(to bottom, #a4e670 0%, #5cb82a 50%, #3f9a14 51%, #62bf30 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.7),
+      inset 0 -2px 4px rgba(20, 80, 0, 0.4),
+      0 3px 0 #2a6b12,
+      0 6px 12px rgba(0, 20, 60, 0.5);
+  }
+  .btn.green:active {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      inset 0 -2px 4px rgba(20, 80, 0, 0.4),
+      0 0 0 #2a6b12,
+      0 2px 5px rgba(0, 20, 60, 0.5);
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="JTLB"><div class="JTLB-mark">JTLB</div></div>
+    <ul class="menu">
+      <li><a href="/JTLBA/2010/home/">Home</a></li>
+      <li><a href="/JTLBA/2010/about/">About</a></li>
+      <li><a href="/JTLBA/2010/services/">Services</a></li>
+      <li><a href="/JTLBA/2010/blog/">Blog</a></li>
+      <li><a href="/JTLBA/2010/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>JTLB app</h1>
+    <p class="sub">Expirence everything in the palm of your hand.</p>
+  </header>
+
+  <div class="buttons">
+    <button class="btn" type="button"><span></span></button>
+    <button class="btn green" type="button"><span></span></button>
+  </div>
+</body>
+</html>
