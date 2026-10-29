@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to JTLB - 2011 Edition</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
+  body {
+    min-height: 100vh;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    background-color: #1a2a3a;
+    background-image: linear-gradient(to bottom, #2d4359 0%, #172838 100%);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* --- Top Navigation Bar --- */
+  nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    background-color: #0f1924;
+    border-bottom: 3px solid #007acc;
+  }
+
+  .JTLB {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .JTLB-mark {
+    width: 52px;
+    height: 32px;
+    background-color: #007acc;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+  }
+
+  .menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+
+  .menu a {
+    display: inline-block;
+    color: #b0c4de;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.15s ease;
+  }
+
+  .menu a:hover {
+    color: #ffffff;
+  }
+
+  /* --- Header Area --- */
+  header {
+    text-align: center;
+    max-width: 680px;
+    margin: 70px 20px 40px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .sub {
+    font-size: 16px;
+    font-weight: 400;
+    color: #8fa3bc;
+  }
+
+  /* --- Buttons with Real Images --- */
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+  }
+
+  .btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.1s ease, opacity 0.15s ease;
+  }
+
+  .btn img {
+    height: 52px; /* Standard web badge height */
+    width: auto;
+    display: block;
+  }
+
+  .btn:hover {
+    opacity: 0.9;
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  @media (max-width: 600px) {
+    nav { flex-direction: column; gap: 12px; padding: 12px; }
+    .menu { flex-wrap: wrap; justify-content: center; gap: 14px; }
+    h1 { font-size: 38px; }
+    header { margin-top: 40px; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="JTLB">
+      <div class="JTLB-mark">JTLB</div>
+    </div>
+    <ul class="menu">
+      <li><a href="/JTLBA/2011/">Home</a></li>
+      <li><a href="/JTLBA/2011/about/">About</a></li>
+      <li><a href="/JTLBA/2011/services/">Services</a></li>
+      <li><a href="/JTLBA/2011/blog/">Blog</a></li>
+      <li><a href="/JTLBA/2011/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>JTLB App</h1>
+    <p class="sub">Experience everything in the palm of your hand.</p>
+  </header>
+
+  <div class="buttons">
+    <!-- App Store Badge Image -->
+    <button class="btn" type="button">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/archive/5/5d/20120930120055%21Available_on_the_App_Store_%28black%29.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="Download on the App Store">
+    </button>
+    
+    <!-- Android Market / Google Play Badge Image -->
+    <button class="btn" type="button">
+      <img src="https://static.wikia.nocookie.net/logopedia/images/9/93/Droidmarkblackshort.svg/revision/latest?cb=20251023180326" alt="Get it on Google Play">
+    </button>
+  </div>
+
+</body>
+</html>
