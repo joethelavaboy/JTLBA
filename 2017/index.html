@@ -1,1 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JTLB</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
+  body {
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #2d3748;
+    background-color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  /* --- 2017 Hero Section --- */
+  .hero-container {
+    background: linear-gradient(135deg, #90d5ff 0%, #111184 100%);
+    color: #ffffff;
+    position: relative;
+    padding-bottom: 60px;
+  }
+
+  /* --- Top Navigation --- */
+  nav {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 24px;
+  }
+
+  .JTLB {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .JTLB-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #191199;
+    font-weight: 800;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .menu a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .menu a:hover {
+    color: #ffffff;
+  }
+
+  /* --- 2017 Split Two-Column Layout --- */
+  .hero-content {
+    max-width: 1140px;
+    margin: 40px auto 20px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .hero-text p.sub {
+    font-size: 19px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .btn img {
+    height: 48px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.2));
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.3));
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  /* --- Floating Mobile Phone Frame --- */
+  .hero-mockup {
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone-frame {
+    width: 280px;
+    height: 520px;
+    background: #000000;
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+    border: 4px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+  }
+
+  .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* --- Smooth Organic Wave Divider --- */
+  .wave-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background: #ffffff;
+  }
+
+  .wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+  }
+
+  @media (max-width: 850px) {
+    .hero-content { grid-template-columns: 1fr; text-align: center; }
+    .buttons { justify-content: center; }
+    nav { flex-direction: column; gap: 20px; }
+    .hero-text h1 { font-size: 38px; }
+    .phone-frame { width: 240px; height: 440px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero-container">
+    <nav>
+      <div class="JTLB">
+        <div class="JTLB-mark">JTLB</div>
+      </div>
+      <ul class="menu">
+        <li><a href="/JTLBA/2017/">Home</a></li>
+        <li><a href="/JTLBA/2017/about/">About</a></li>
+        <li><a href="/JTLBA/2017/services/">Services</a></li>
+        <li><a href="/JTLBA/2017/blog/">Blog</a></li>
+        <li><a href="/JTLBA/2017/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>JTLB App</h1>
+        <p class="sub">Experience everything in the palm of your hand.</p>
+        
+        <div class="buttons">
+          <!-- App Store Badge Button -->
+          <button class="btn" type="button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
+          </button>
+          
+          <!-- Google Play / Android Badge Button -->
+          <button class="btn" type="button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/archive/7/78/20190802123605%21Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-mockup">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <img src="/JTLBA/2017/jtlbhero2017.png" alt="JTLB Mobile Interface">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soft Wave SVG Separator -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#7c3aed"></path>
+    </svg>
+  </div>
+
+</body>
+</html>
