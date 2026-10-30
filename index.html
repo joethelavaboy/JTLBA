@@ -1,1 +1,679 @@
-coming soon!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTLBA</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Era Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;700&family=Segoe+UI&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            min-height: 100vh;
+        }
+
+        /* CUSTOM YEAR STYLES */
+
+        /* 2009: Windows 7 Aero Gloss */
+        .btn-2009 {
+            background: linear-gradient(180deg, 
+                rgba(255,255,255,0.7) 0%, 
+                rgba(255,255,255,0.2) 48%, 
+                rgba(0,120,215,0.4) 49%, 
+                rgba(0,100,200,0.7) 100%),
+                radial-gradient(circle at top, rgba(255,255,255,0.8), transparent 70%);
+            border: 1px solid #1c5280;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 150, 255, 0.5), inset 0 1px 0 rgba(255,255,255,0.9);
+            color: #ffffff;
+            text-shadow: 0 1px 2px #000;
+            transition: all 0.2s ease;
+        }
+        .btn-2009:hover {
+            box-shadow: 0 0 18px rgba(0, 190, 255, 0.9), inset 0 1px 0 rgba(255,255,255,1);
+            filter: brightness(1.15);
+        }
+        .btn-2009:active {
+            background: linear-gradient(180deg, 
+                rgba(0,80,160,0.7) 0%, 
+                rgba(0,120,215,0.8) 50%, 
+                rgba(255,255,255,0.4) 100%);
+        }
+
+        /* 2010: iOS 4 Skeuomorphic Shiny Gloss & Leather/Linen vibe */
+        .btn-2010 {
+            background: linear-gradient(180deg, #6b89b3 0%, #3a5c8d 50%, #1e3b66 51%, #284c7f 100%);
+            border: 1px solid #14253f;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.6);
+            color: #ffffff;
+            font-weight: 700;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+        }
+        .btn-2010:hover {
+            background: linear-gradient(180deg, #7b99c3 0%, #4a6c9d 50%, #2e4b76 51%, #385c8f 100%);
+        }
+        .btn-2010:active {
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.7);
+            background: linear-gradient(180deg, #1e3b66 0%, #284c7f 100%);
+        }
+
+        /* 2011: Mac OS X Lion / iOS 5 Embossed Metal Bevel */
+        .btn-2011 {
+            background: linear-gradient(180deg, #dedede 0%, #b0b0b0 49%, #9e9e9e 50%, #cecece 100%);
+            border: 1px solid #666;
+            border-radius: 5px;
+            color: #333;
+            font-weight: 800;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.3);
+        }
+        .btn-2011:hover {
+            background: linear-gradient(180deg, #eaeaea 0%, #c0c0c0 49%, #aeaeae 50%, #dedede 100%);
+        }
+        .btn-2011:active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+            background: #a8a8a8;
+        }
+
+        /* 2012: Android 4.0 Holo Dark / Neon Cyan */
+        .btn-2012 {
+            background-color: rgba(18, 28, 36, 0.85);
+            border: 2px solid #0099cc;
+            border-radius: 2px;
+            color: #33b5e5;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            box-shadow: 0 0 8px rgba(0, 153, 204, 0.4);
+            letter-spacing: 1px;
+        }
+        .btn-2012:hover {
+            background-color: rgba(0, 153, 204, 0.2);
+            box-shadow: 0 0 15px rgba(0, 153, 204, 0.8);
+            color: #ffffff;
+        }
+        .btn-2012:active {
+            background-color: #0099cc;
+            color: #000;
+        }
+
+        /* 2013: iOS 7 Ultra-minimal Thin Line */
+        .btn-2013 {
+            background: transparent;
+            border: 1px solid #007aff;
+            color: #007aff;
+            border-radius: 25px;
+            font-weight: 300;
+            transition: all 0.25s ease;
+        }
+        .btn-2013:hover {
+            background: #007aff;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(0, 122, 255, 0.4);
+        }
+        .btn-2013:active {
+            opacity: 0.7;
+        }
+
+        /* 2014: Android 5.0 Lollipop Material 1.0 Ripple */
+        .btn-2014 {
+            background-color: #009688;
+            color: #ffffff;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .btn-2014:hover {
+            box-shadow: 0 5px 11px 0 rgba(0,0,0,0.38);
+            background-color: #00897b;
+        }
+
+        /* 2015: Windows 10 Metro / Flat Tile */
+        .btn-2015 {
+            background-color: #0078d7;
+            color: #ffffff;
+            border: 2px solid transparent;
+            border-radius: 0px;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+            transition: border-color 0.1s, background-color 0.1s;
+        }
+        .btn-2015:hover {
+            background-color: #005a9e;
+            border-color: #60cdff;
+        }
+        .btn-2015:active {
+            transform: scale(0.98);
+        }
+
+        /* 2016: Modern Minimalist Flat Soft Pastel */
+        .btn-2016 {
+            background: linear-gradient(135deg, #a8edd2 0%, #fed6e3 100%);
+            color: #2d3748;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-2016:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(254, 214, 227, 0.4);
+        }
+
+        /* 2017: Bold Typography & Vibrant Gradient (Instagram Redesign Era) */
+        .btn-2017 {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #ffffff;
+            border-radius: 14px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            box-shadow: 0 10px 20px -5px rgba(220, 39, 67, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-2017:hover {
+            transform: scale(1.03);
+            box-shadow: 0 14px 28px -5px rgba(220, 39, 67, 0.7);
+        }
+
+        /* 2018: Google Material Design 2.0 Pill */
+        .btn-2018 {
+            background-color: #ffffff;
+            color: #1a73e8;
+            border-radius: 50px;
+            border: 1px solid #dadce0;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(60,64,67,0.12);
+            transition: all 0.2s ease;
+        }
+        .btn-2018:hover {
+            background-color: #f8faff;
+            border-color: #d2e3fc;
+            box-shadow: 0 4px 8px rgba(60,64,67,0.2);
+            color: #174ea6;
+        }
+
+        /* 2019: Early Dark Mode Neon Violet Accent */
+        .btn-2019 {
+            background-color: #121212;
+            color: #bb86fc;
+            border: 1px solid #3700b3;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(187, 134, 252, 0.25);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-2019:hover {
+            background-color: #1f1a24;
+            box-shadow: 0 0 25px rgba(187, 134, 252, 0.6);
+            color: #ffffff;
+        }
+
+        /* 2020: Neumorphism Soft UI */
+        .btn-2020 {
+            background-color: #2e3238;
+            color: #41b883;
+            border-radius: 16px;
+            box-shadow:  6px 6px 14px #23262a, -6px -6px 14px #393e46;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .btn-2020:hover {
+            color: #61dafb;
+            box-shadow:  8px 8px 18px #212428, -8px -8px 18px #3b4048;
+        }
+        .btn-2020:active {
+            box-shadow: inset 5px 5px 10px #212428, inset -5px -5px 10px #3b4048;
+        }
+
+        /* 2021: Glassmorphism */
+        .btn-2021 {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            color: #ffffff;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.3s ease;
+        }
+        .btn-2021:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.47);
+        }
+
+        /* 2022: Neo-Brutalism */
+        .btn-2022 {
+            background-color: #a3e635;
+            color: #000000;
+            border: 3px solid #000000;
+            border-radius: 6px;
+            font-weight: 900;
+            text-transform: uppercase;
+            box-shadow: 5px 5px 0px #000000;
+            transition: all 0.1s ease;
+        }
+        .btn-2022:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #000000;
+            background-color: #facc15;
+        }
+        .btn-2022:active {
+            transform: translate(3px, 3px);
+            box-shadow: 1px 1px 0px #000000;
+        }
+
+        /* 2023: Modern Clean SaaS Dark Slate & Border Glow */
+        .btn-2023 {
+            background: #0f172a;
+            color: #f8fafc;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .btn-2023:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+            color: #38bdf8;
+        }
+
+        /* 2024: Spatial Design / Vision Pro Glass Capsule */
+        .btn-2024 {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px) saturate(190%);
+            -webkit-backdrop-filter: blur(25px) saturate(190%);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 9999px;
+            color: #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-2024:hover {
+            transform: scale(1.04);
+            background: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        /* 2025: Modern Dynamic Fluid / Generative Mesh Gradient Glow */
+        .btn-2025 {
+            background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+            background-size: 200% 200%;
+            animation: meshGradient 4s ease infinite;
+            color: #ffffff;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            font-weight: 800;
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-2025:hover {
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.8), 0 0 15px rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        @keyframes meshGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Ripple Effect for 2014 */
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-anim 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple-anim {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="border-b border-gray-800 bg-gray-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-indigo-600 rounded-lg text-white">
+                    <i class="fa-solid font-bold fa-timeline text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white">JTLB Archives</h1>
+                    <p class="text-xs text-gray-400">17 Years of my website (2009 – 2025)</p>
+                </div>
+            </div>
+
+            <!-- Preview Target Box -->
+            <div id="target-preview" class="w-full sm:w-auto bg-gray-900 border border-gray-800 rounded-xl px-4 py-2 flex items-center justify-between gap-4 transition-all">
+                <div class="flex items-center gap-2">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-mono text-gray-400">Target Route:</span>
+                    <span id="route-display" class="text-xs font-mono font-semibold text-emerald-400">/JTLBA/hover-a-button</span>
+                </div>
+                <button id="copy-btn" onclick="copyCurrentRoute()" class="text-xs text-gray-400 hover:text-white transition px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded-md flex items-center gap-1">
+                    <i class="fa-regular fa-copy"></i> Copy
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Grid Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- 17 Buttons Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <!-- 2009 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-950 text-blue-300 border border-blue-800/50">2009</span>
+                    <span class="text-xs text-gray-400">Windows 7 Aero</span>
+                </div>
+                <button onclick="navigateTo('2009')" onmouseenter="updatePreview('2009')" class="btn-2009 w-full py-3 px-4 font-semibold text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-windows text-xs"></i> 2009
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Shiny cyan gloss, aqua glass reflections, rounded glow effects.</p>
+            </div>
+
+            <!-- 2010 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">2010</span>
+                    <span class="text-xs text-gray-400">iOS 4 Skeuomorphism</span>
+                </div>
+                <button onclick="navigateTo('2010')" onmouseenter="updatePreview('2010')" class="btn-2010 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-apple text-sm"></i> 2010
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Realistic glass highlight, dark inner gradients & drop shadows.</p>
+            </div>
+
+            <!-- 2011 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-gray-800 text-gray-300 border border-gray-700">2011</span>
+                    <span class="text-xs text-gray-400">OS X Lion Metal</span>
+                </div>
+                <button onclick="navigateTo('2011')" onmouseenter="updatePreview('2011')" class="btn-2011 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-cube text-xs"></i> 2011
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Heavy metallic bevels, tactile textures, etched inner shadow.</p>
+            </div>
+
+            <!-- 2012 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800">2012</span>
+                    <span class="text-xs text-gray-400">Android Holo Dark</span>
+                </div>
+                <button onclick="navigateTo('2012')" onmouseenter="updatePreview('2012')" class="btn-2012 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-android text-sm"></i> 2012
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Tron-inspired neon cyan borders, translucent slate backdrop.</p>
+            </div>
+
+            <!-- 2013 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-950 text-blue-400 border border-blue-800">2013</span>
+                    <span class="text-xs text-gray-400">iOS 7 Ultra-Flat</span>
+                </div>
+                <button onclick="navigateTo('2013')" onmouseenter="updatePreview('2013')" class="btn-2013 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-regular fa-circle text-xs"></i> 2013
+                </button>
+                <p class="text-xs text-gray-500 mt-2">1px hairline borders, high-contrast flat primary colors, zero shadows.</p>
+            </div>
+
+            <!-- 2014 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-teal-950 text-teal-300 border border-teal-800">2014</span>
+                    <span class="text-xs text-gray-400">Material Design 1.0</span>
+                </div>
+                <button onclick="createRipple(event); navigateTo('2014')" onmouseenter="updatePreview('2014')" class="btn-2014 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-layer-group text-xs"></i> 2014
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Bold paper surfaces, realistic drop shadows, interactive click ripples.</p>
+            </div>
+
+            <!-- 2015 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-900 text-sky-200 border border-blue-700">2015</span>
+                    <span class="text-xs text-gray-400">Windows 10 Metro</span>
+                </div>
+                <button onclick="navigateTo('2015')" onmouseenter="updatePreview('2015')" class="btn-2015 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-brands fa-windows text-xs"></i> 2015 
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Sharp rectangular corners, flat saturated solid blue fill, Segoe UI.</p>
+            </div>
+
+            <!-- 2016 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-pink-950 text-pink-300 border border-pink-800">2016</span>
+                    <span class="text-xs text-gray-400">Soft Pastel Flat</span>
+                </div>
+                <button onclick="navigateTo('2016')" onmouseenter="updatePreview('2016')" class="btn-2016 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-feather text-xs"></i> 2016
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Calming pastel gradient transition, soft subtle elevation card shadow.</p>
+            </div>
+
+            <!-- 2017 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-950 text-rose-300 border border-rose-800">2017</span>
+                    <span class="text-xs text-gray-400">Vibrant Redesign</span>
+                </div>
+                <button onclick="navigateTo('2017')" onmouseenter="updatePreview('2017')" class="btn-2017 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-instagram text-base"></i> 2017
+                </button>
+                <p class="text-xs text-gray-500 mt-2">High saturation Instagram-style multi-color gradient & bold text.</p>
+            </div>
+
+            <!-- 2018 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-950 text-blue-300 border border-blue-800">2018</span>
+                    <span class="text-xs text-gray-400">Material Design 2.0</span>
+                </div>
+                <button onclick="navigateTo('2018')" onmouseenter="updatePreview('2018')" class="btn-2018 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-brands fa-google text-xs"></i> 2018
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Full rounded stadium capsule, clean white surface, Google Blue focus.</p>
+            </div>
+
+            <!-- 2019 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-950 text-purple-300 border border-purple-800">2019</span>
+                    <span class="text-xs text-gray-400">Early Dark Mode</span>
+                </div>
+                <button onclick="navigateTo('2019')" onmouseenter="updatePreview('2019')" class="btn-2019 w-full py-3 px-4 text-sm font-semibold flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-moon text-xs"></i> 2019
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Deep true-black backdrop, electric neon violet ambient outline glow.</p>
+            </div>
+
+            <!-- 2020 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800">2020</span>
+                    <span class="text-xs text-gray-400">Neumorphism</span>
+                </div>
+                <button onclick="navigateTo('2020')" onmouseenter="updatePreview('2020')" class="btn-2020 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-circle-nodes text-xs"></i> 2020
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Soft extruded plastic look using dual light and dark cast shadows.</p>
+            </div>
+
+            <!-- 2021 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800">2021</span>
+                    <span class="text-xs text-gray-400">Glassmorphism</span>
+                </div>
+                <button onclick="navigateTo('2021')" onmouseenter="updatePreview('2021')" class="btn-2021 w-full py-3 px-4 text-sm font-medium flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-[#000]"></i> 2021
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Heavy background backdrop-blur, semi-transparent frosted border.</p>
+            </div>
+
+            <!-- 2022 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-lime-950 text-lime-400 border border-lime-800">2022</span>
+                    <span class="text-xs text-gray-400">Neo-Brutalism</span>
+                </div>
+                <button onclick="navigateTo('2022')" onmouseenter="updatePreview('2022')" class="btn-2022 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-bolt text-xs"></i> 2022
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Thick black stroke border, high-contrast neon green & hard shadow offset.</p>
+            </div>
+
+            <!-- 2023 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">2023</span>
+                    <span class="text-xs text-gray-400">Clean SaaS Glow</span>
+                </div>
+                <button onclick="navigateTo('2023')" onmouseenter="updatePreview('2023')" class="btn-2023 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-wand-magic-sparkles text-xs"></i> 2023
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Modern dark mode slate background with subtle sky-blue border glow.</p>
+            </div>
+
+            <!-- 2024 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800">2024</span>
+                    <span class="text-xs text-gray-400">Spatial Vision Glass</span>
+                </div>
+                <button onclick="navigateTo('2024')" onmouseenter="updatePreview('2024')" class="btn-2024 w-full py-3 px-4 text-sm font-semibold flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-vr-cardboard text-xs"></i> 2024
+                </button>
+                <p class="text-xs text-gray-500 mt-2">3D depth glass capsule, specular top highlights, optical refraction feel.</p>
+            </div>
+
+            <!-- 2025 -->
+            <div class="bg-gray-900/50 border border-gray-800/60 p-5 rounded-2xl flex flex-col justify-between hover:border-gray-700 transition">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-fuchsia-950 text-fuchsia-300 border border-fuchsia-800">2025</span>
+                    <span class="text-xs text-gray-400">Dynamic Fluid Mesh</span>
+                </div>
+                <button onclick="navigateTo('2025')" onmouseenter="updatePreview('2025')" class="btn-2025 w-full py-3 px-4 text-sm flex items-center justify-center gap-2 my-2 cursor-pointer">
+                    <i class="fa-solid fa-atom text-xs"></i> 2025
+                </button>
+                <p class="text-xs text-gray-500 mt-2">Animated generative mesh color gradient with pulsating aura ring.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Toast Notification Box -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-emerald-500 text-slate-950 font-semibold px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 z-50">
+        <i class="fa-solid fa-paper-plane text-lg"></i>
+        <div>
+            <p class="text-xs font-bold uppercase tracking-wider opacity-80">Forwarding Request</p>
+            <p id="toast-msg" class="text-sm font-mono"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-gray-950 py-6 mt-12 text-center text-xs text-gray-500">
+        <p>Interactive Design System Archetypes (2009–2025) • All 17 Redirects map to <code class="text-gray-400 font-mono">/JTLBA/[YEAR]</code></p>
+    </footer>
+
+    <script>
+        // Update hover preview box
+        function updatePreview(year) {
+            const routeDisplay = document.getElementById('route-display');
+            routeDisplay.textContent = `/JTLBA/${year}`;
+        }
+
+        // Navigation handler
+        function navigateTo(year) {
+            const targetUrl = `/JTLBA/${year}`;
+            showToast(`Navigating to ${targetUrl}...`);
+
+            // Execute actual URL redirection after brief toast animation feedback
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 600);
+        }
+
+        // Toast feedback
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2500);
+        }
+
+        // Copy route helper
+        function copyCurrentRoute() {
+            const routeText = document.getElementById('route-display').textContent;
+            
+            // Clipboard fallback logic
+            const tempInput = document.createElement('input');
+            tempInput.value = routeText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast(`Copied ${routeText} to clipboard!`);
+        }
+
+        // 2014 Material Design Ripple effect helper
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const circle = document.createElement('span');
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+
+            const rect = button.getBoundingClientRect();
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - rect.left - radius}px`;
+            circle.style.top = `${event.clientY - rect.top - radius}px`;
+            circle.classList.add('ripple');
+
+            const ripple = button.getElementsByClassName('ripple')[0];
+            if (ripple) {
+                ripple.remove();
+            }
+
+            button.appendChild(circle);
+        }
+    </script>
+</body>
+</html>
