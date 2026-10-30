@@ -1,1 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JTLB</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  body {
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+    color: #f8fafc;
+    background-color: #030712;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 50%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 48px 48px, 48px 48px;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px;
+  }
+
+  /* --- 2024 Floating Spatial Pill Nav --- */
+  nav {
+    width: 90%;
+    max-width: 1120px;
+    margin: 24px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .JTLB { display: flex; align-items: center; gap: 12px; }
+
+  .JTLB-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+
+  .menu { display: flex; gap: 24px; list-style: none; }
+  .menu a {
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .menu a:hover { color: #ffffff; }
+
+  /* --- Bento Grid Spatial Layout --- */
+  .bento-grid {
+    width: 90%;
+    max-width: 1120px;
+    margin: 36px auto 0;
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 20px;
+  }
+
+  .bento-card {
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .bento-card:hover {
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+  }
+
+  .ai-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #c084fc;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+
+  .ai-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #c084fc;
+    box-shadow: 0 0 10px #c084fc;
+  }
+
+  .hero-text h1 {
+    font-size: 58px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #ffffff;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+
+  .hero-text p.sub {
+    font-size: 18px;
+    font-weight: 400;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  .buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+  }
+
+  .btn img {
+    height: 46px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+  }
+
+  .btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: drop-shadow(0 10px 24px rgba(99, 102, 241, 0.4));
+  }
+
+  /* Mockup Bento Card */
+  .mockup-card {
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.12) 0%, rgba(15, 23, 42, 0.5) 100%);
+  }
+
+  .phone-frame {
+    width: 240px;
+    height: 480px;
+    background: #020617;
+    border-radius: 42px;
+    padding: 8px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(99, 102, 241, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 34px;
+    overflow: hidden;
+  }
+
+  .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 850px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-card { padding: 36px 24px; text-align: center; }
+    .ai-pill { margin: 0 auto 20px; }
+    .buttons { justify-content: center; }
+    nav { flex-direction: column; gap: 16px; padding: 16px 20px; border-radius: 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="JTLB">
+      <div class="JTLB-mark">JTLB</div>
+    </div>
+    <ul class="menu">
+      <li><a href="/JTLBA/2024/">Home</a></li>
+      <li><a href="/JTLBA/2024/about/">About</a></li>
+      <li><a href="/JTLBA/2024/services/">Services</a></li>
+      <li><a href="/JTLBA/2024/blog/">Blog</a></li>
+      <li><a href="/JTLBA/2024/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="bento-grid">
+    <div class="bento-card">
+      <div class="hero-text">
+        <div>
+        </div>
+        <h1>JTLB App</h1>
+        <p class="sub">Experience everything in the palm of your hand.</p>
+      </div>
+
+      <div class="buttons">
+        <button class="btn" type="button">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
+        </button>
+        <button class="btn" type="button">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+        </button>
+      </div>
+    </div>
+
+    <div class="bento-card mockup-card">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="JTLB App Mockup">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
