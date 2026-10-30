@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to JTLB - 2016 Edition</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
+  body {
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #2d3748;
+    background-color: #f7fafc;
+    overflow-x: hidden;
+  }
+
+  /* --- 2016 Vibrant Hero Gradient & Angled Section --- */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, #00B7FF 0%, #0800FF 100%);
+    color: #ffffff;
+    padding-bottom: 120px;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  }
+
+  /* --- Top Navigation --- */
+  nav {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 24px;
+  }
+
+  .JTLB {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .JTLB-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #0800FF;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .menu a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .menu a:hover {
+    color: #ffffff;
+  }
+
+  /* --- Hero Content Area --- */
+  header {
+    text-align: center;
+    max-width: 760px;
+    margin: 60px auto 40px;
+    padding: 0 24px;
+  }
+
+  h1 {
+    font-size: 58px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    line-height: 1.15;
+  }
+
+  .sub {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  /* --- App Badge Action Buttons --- */
+  .buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .btn img {
+    height: 50px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  /* --- 2016 Floating App Feature Showcase --- */
+  .preview-container {
+    max-width: 800px;
+    margin: -80px auto 80px;
+    padding: 0 24px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .preview-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(50, 50, 93, 0.15), 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .preview-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    nav { flex-direction: column; gap: 20px; padding: 20px; }
+    .menu { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    h1 { font-size: 36px; }
+    .sub { font-size: 16px; }
+    header { margin-top: 30px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <nav>
+      <div class="JTLB">
+        <div class="JTLB-mark">JTLB</div>
+      </div>
+      <ul class="menu">
+        <li><a href="/JTLBA/2016/">Home</a></li>
+        <li><a href="/JTLBA/2016/about/">About</a></li>
+        <li><a href="/JTLBA/2016/services/">Services</a></li>
+        <li><a href="/JTLBA/2016/blog/">Blog</a></li>
+        <li><a href="/JTLBA/2016/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1>JTLB App</h1>
+      <p class="sub">Experience everything in the palm of your hand.</p>
+      
+      <div class="buttons">
+        <!-- App Store Badge Button -->
+        <button class="btn" type="button">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
+        </button>
+        
+        <!-- Google Play / Android Badge Button -->
+        <button class="btn" type="button">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/archive/7/78/20190802123605%21Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- 2016 Floating App Showcase Card -->
+  <div class="preview-container">
+    <div class="preview-card">
+      <img src="/JTLBA/2015/jtlbhero2015.png" alt="JTLBHero2015">
+    </div>
+  </div>
+
+</body>
+</html>
