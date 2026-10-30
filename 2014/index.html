@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to JTLB - 2014 Material Edition</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
+  body {
+    min-height: 100vh;
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    color: #212121;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* --- 2014 Material Design Top App Bar --- */
+  nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 64px;
+    background-color: #3f51b5; /* Material Indigo 500 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
+    z-index: 10;
+  }
+
+  .JTLB {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .JTLB-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Floating round mark */
+    background-color: #008cff; /* Material Cyan Accent */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  }
+
+  .menu {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+  }
+
+  .menu a {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+  }
+
+  .menu a:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  /* --- Main Material Card Container --- */
+  .container {
+    max-width: 680px;
+    width: 90%;
+    margin: 50px 20px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+  }
+
+  /* --- Hero Header Area --- */
+  header {
+    text-align: center;
+    padding: 48px 32px 32px;
+  }
+
+  h1 {
+    font-size: 44px;
+    font-weight: 400;
+    color: #212121;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .sub {
+    font-size: 18px;
+    font-weight: 400;
+    color: #757575;
+    line-height: 1.5;
+  }
+
+  /* --- Raised Material Action Buttons --- */
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 32px 48px;
+  }
+
+  .btn {
+    background: #ffffff;
+    border: none;
+    border-radius: 2px;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease;
+  }
+
+  .btn img {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+
+  .btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.24);
+    transform: translateY(-1px);
+  }
+
+  .btn:active {
+    box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+  }
+
+  @media (max-width: 600px) {
+    nav { height: auto; padding: 16px; flex-direction: column; gap: 12px; }
+    .menu { flex-wrap: wrap; justify-content: center; gap: 8px; }
+    h1 { font-size: 32px; }
+    .container { margin: 24px 12px; }
+    header { padding: 32px 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="JTLB">
+      <div class="JTLB-mark">JTLB</div>
+    </div>
+    <ul class="menu">
+      <li><a href="/JTLBA/2014/">Home</a></li>
+      <li><a href="/JTLBA/2014/about/">About</a></li>
+      <li><a href="/JTLBA/2014/services/">Services</a></li>
+      <li><a href="/JTLBA/2014/blog/">Blog</a></li>
+      <li><a href="/JTLBA/2014/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>JTLB App</h1>
+      <p class="sub">Experience everything in the palm of your hand.</p>
+    </header>
+
+    <div class="buttons">
+      <!-- App Store Badge Button -->
+      <button class="btn" type="button">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Available_on_the_App_Store_%28black%29_SVG.svg/330px-Available_on_the_App_Store_%28black%29_SVG.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20130522010834" alt="App Store Icon">
+      </button>
+      
+      <!-- Google Play / Android Badge Button -->
+      <button class="btn" type="button">
+        <img src="https://static.wikia.nocookie.net/logopedia/images/a/ad/Google_Play_2013.png/revision/latest?cb=20211124185128" alt="Google Play Icon">
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
