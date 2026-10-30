@@ -1,1 +1,181 @@
-coming soon
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to JTLB - 2013 Edition</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: -apple-system, "Helvetica Neue", "Segoe UI Light", "Roboto", sans-serif;
+    color: #333333;
+    background: #9d5ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* --- Top Navigation --- */
+  nav {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+  }
+
+  .JTLB {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .JTLB-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: .5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+  }
+
+  .menu {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .menu a {
+    display: inline-block;
+    color: #8e8e93;
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .menu a:hover {
+    color: #007aff;
+  }
+
+  /* --- Hero Header Area --- */
+  header {
+    text-align: center;
+    max-width: 720px;
+    margin: 70px 20px 40px;
+  }
+
+  h1 {
+    font-size: 64px;
+    font-weight: 100;
+    letter-spacing: 1.5px;
+    color: #1c1c1e;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .sub {
+    font-size: 20px;
+    font-weight: 300;
+    color: #8e8e93;
+    line-height: 1.5;
+  }
+
+  /* --- Minimal Flat Image Buttons --- */
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px 20px 60px;
+  }
+
+  .btn {
+    background: #ffffff;
+    border: 1px solid #e5e5ea;
+    border-radius: 12px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn img {
+    height: 54px;
+    width: auto;
+    display: block;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-color: #c7c7cc;
+  }
+
+  .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  @media (max-width: 600px) {
+    nav { flex-direction: column; gap: 20px; padding: 20px; }
+    .menu { flex-wrap: wrap; justify-content: center; gap: 18px; }
+    h1 { font-size: 42px; }
+    .sub { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-bar"></div>
+
+  <nav>
+    <div class="JTLB">
+      <div class="JTLB-mark">JTLB</div>
+    </div>
+    <ul class="menu">
+      <li><a href="/JTLBA/2013/">Home</a></li>
+      <li><a href="/JTLBA/2013/about/">About</a></li>
+      <li><a href="/JTLBA/2013/services/">Services</a></li>
+      <li><a href="/JTLBA/2013/blog/">Blog</a></li>
+      <li><a href="/JTLBA/2013/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>JTLB App</h1>
+    <p class="sub">Experience everything in the palm of your hand.</p>
+  </header>
+
+  <div class="buttons">
+    <!-- App Store Badge Button -->
+    <button class="btn" type="button">
+      <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Available_on_the_App_Store_%28black%29_SVG.svg/330px-Available_on_the_App_Store_%28black%29_SVG.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20130522010834" alt="App Store Icon">
+    </button>
+    
+    <!-- Google Play / Android Badge Button -->
+    <button class="btn" type="button">
+      <img src="https://static.wikia.nocookie.net/logopedia/images/d/dc/Get_it_on_Google_Play_badge.svg/revision/latest/scale-to-width-down/1000?cb=20260617200544" alt="Google Play Icon">
+    </button>
+  </div>
+
+</body>
+</html>
